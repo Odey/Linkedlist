@@ -47,6 +47,25 @@ def deleteback(first):
 		temp= temp.getnext()
 	temp.setnext(None)
 	
+def insertat(first, data, pos):
+	count = 1
+	if pos ==1 :
+		first = insertfront(first, data)
+		return first
+	newnode = node(data)
+	if first == None:
+		first = newnode
+		return first
+	temp = first
+	prev = None
+	while count < pos:
+		count +=1
+		prev = temp
+		temp = temp.getnext()
+	newnode.setnext(temp)
+	prev.setnext(newnode)
+	return first
+	
 def printlinkedlist(first):
 	temp = first
 	while temp != None:
@@ -72,7 +91,11 @@ first = insertback(first,27)
 deleteback(first)
 first = insertback(first, 54)
 printlinkedlist(first)
-sizelinkedlist(first)		
+sizelinkedlist(first)
+first = insertat(first, 35, 3)
+first = insertat(first, 35, 5)
+first = insertat(first, 99, 8)
+printlinkedlist(first)
 		
 		
 		
