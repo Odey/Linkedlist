@@ -1,0 +1,84 @@
+class node:
+	def __init__(self,val):
+		self.data = val
+		self.next = None
+	
+	def getdata(self):
+		return self.data
+	
+	def setdata(self, val):
+		self.data = val
+	
+	def getnext(self):
+		return self.next
+	
+	def setnext(self, pt):
+		self.next= pt
+
+def insertfront(first, num):
+	temp = node(num)
+	temp.setnext(first)
+	first = temp
+	return first
+	
+def deletefront(first):
+	temp = first.getnext()
+	first = temp
+	return first
+	
+def insertback(first, val):
+	newnode = node(val)
+	if first == None:
+		first = newnode
+		return first
+	temp = first
+	while temp.getnext() != None:
+		temp= temp.getnext()
+	temp.setnext(newnode)
+	return first
+
+def deleteback(first):
+	
+	if first == None:
+		print ("List is empty")
+		return
+	temp = first
+	while temp.getnext().getnext() != None:
+		temp= temp.getnext()
+	temp.setnext(None)
+	
+def printlinkedlist(first):
+	temp = first
+	while temp != None:
+		print (temp.getdata())
+		temp = temp.getnext()
+def sizelinkedlist(first):
+	temp = first
+	count = 0
+	while temp != None:
+		count +=1
+		temp=temp.getnext()
+	print ("size of the list is", count)
+	return
+	
+first = node(1) 
+first = insertfront(first,5)
+first= insertfront(first, 10)
+first= insertfront(first, 15)
+sizelinkedlist(first)
+first= insertfront(first, 120)
+first = deletefront(first)
+first = insertback(first,27)
+deleteback(first)
+first = insertback(first, 54)
+printlinkedlist(first)
+sizelinkedlist(first)		
+		
+		
+		
+		
+		
+		
+		
+		
+		
