@@ -1,0 +1,30 @@
+void SelectionSortLL(){
+  NODE min = first;
+  NODE traverse, curr= first;
+  if(first == NULL)
+    return;
+  if (first->NULL){
+    cout<<"only one node present";
+    return;
+  }
+  while(curr){
+    min = curr;
+    traverse = curr->next;
+    while(traverse->next != NULL){
+      if(min->data > traverse->data){
+        min = traverse;
+      }
+      traverse = traverse->next
+    }
+    swap(min, curr);
+    curr = curr->next;
+  }
+}
+
+void swap(NODE min, NODE curr){
+  int temp;
+  temp = min->data;
+  min->data = curr->data;
+  curr->data = temp;
+}
+  
