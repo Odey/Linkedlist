@@ -1,0 +1,21 @@
+void reverse(){
+    NODE curr = first, prev = NULL, tmp;
+    std::cout<< "REversing .. "<<std::endl;
+    while(curr !=NULL){
+        tmp = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = tmp;    
+    } 
+    first=prev;
+}
+
+void printReverse(NODE head){
+    if(head == NULL){
+        return;
+    }
+    printReverse(head->next);
+    std::cout<< head->data << " "; 
+    
+    
+}
